@@ -6,7 +6,7 @@ import software.amazon.awscdk.App;
 import software.amazon.awscdk.Environment;
 import software.amazon.awscdk.StackProps;
 
-public class InStockScraperAppTest {
+public class WebScraperAppTest {
     @Test
     public void testAppCreation() {
         App app = new App();

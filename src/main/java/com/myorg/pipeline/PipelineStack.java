@@ -18,7 +18,7 @@ public class PipelineStack extends Stack {
     public PipelineStack(final Construct scope, final String id, final StackProps props) {
         super(scope, id, props);
 
-        final String pipelineName = "InStockScraperPipeline";
+        final String pipelineName = "WebScraperPipeline";
 
         final CodePipelineSource sourceAction = CodePipelineSource.gitHub("MzamoTembe/web_scraper_cdk", "main");
 

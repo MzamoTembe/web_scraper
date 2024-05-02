@@ -10,17 +10,17 @@ import software.amazon.awscdk.services.sns.Topic;
 import software.amazon.awscdk.services.sns.subscriptions.EmailSubscription;
 import software.constructs.Construct;
 
-public class InStockScraperStack extends Stack {
-    public InStockScraperStack(final Construct scope, final String id) {
+public class WebScraperStack extends Stack {
+    public WebScraperStack(final Construct scope, final String id) {
         this(scope, id, null);
     }
 
-    public InStockScraperStack(final Construct scope, final String id, final StackProps props) {
+    public WebScraperStack(final Construct scope, final String id, final StackProps props) {
         super(scope, id, props);
 
         final Topic topic = Topic.Builder.create(this, "SNSTopic")
                 .displayName("In Stock Scraper Topic")
-                .topicName("InStockScraperTopic")
+                .topicName("WebScraperTopic")
                 .build();
 
         topic.addSubscription(EmailSubscription.Builder.create("mzamotembe7@gmail.com")
@@ -35,7 +35,7 @@ public class InStockScraperStack extends Stack {
         lambdaFunction.addEnvironment("TopicArn", topic.getTopicArn());
 
         final Rule eventBridgeRule = Rule.Builder.create(this, "EventBridgeScheduleRule")
-                .schedule(Schedule.rate(Duration.minutes(5)))
+                .schedule(Schedule.rate(Duration.days(7)))
                 .build();
 
         eventBridgeRule.addTarget(new LambdaFunction(lambdaFunction));

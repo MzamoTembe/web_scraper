@@ -4,7 +4,7 @@ import software.amazon.awscdk.App;
 import software.amazon.awscdk.Environment;
 import software.amazon.awscdk.StackProps;
 
-public class InStockScraperApp {
+public class WebScraperApp {
     public static void main(final String[] args) {
         App app = new App();
 
