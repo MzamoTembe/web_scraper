@@ -32,7 +32,7 @@ public class PipelineStack extends Stack {
                 .input(sourceAction)
                 .installCommands(Collections.singletonList("npm install -g aws-cdk"))
                 .commands(buildCommands)
-                .primaryOutputDirectory("cdk/cdk.out")
+                .primaryOutputDirectory("cdk/cdk.json")
                 .build();
 
         final CodePipeline pipeline = CodePipeline.Builder.create(this, "Pipeline")
