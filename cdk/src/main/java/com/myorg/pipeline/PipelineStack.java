@@ -23,9 +23,10 @@ public class PipelineStack extends Stack {
         final CodePipelineSource sourceAction = CodePipelineSource.gitHub("MzamoTembe/web_scraper", "main");
 
         final List<String> buildCommands = Arrays.asList(
+                // Navigate to the CDK directory, install CDK dependencies, and synthesize the CDK application
+                "cd cdk",
                 "npm install -g aws-cdk",
-                "mvn package",
-                "npx cdk synth"
+                "npx cdk synth",
         );
 
         final CodeBuildStep synthStep = CodeBuildStep.Builder.create("SynthStep")
