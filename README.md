@@ -22,7 +22,7 @@ This is a very exaggerated and unnecessary way of implementing a simple web scra
 
 #### Project Structure
 
-This is a CDK Java project with the following structure:
+This is a Java project with the following structure:
 
 - `cdk.json`: Configuration file for the CDK Toolkit.
 - `pom.xml`: Maven configuration for building and managing dependencies.
