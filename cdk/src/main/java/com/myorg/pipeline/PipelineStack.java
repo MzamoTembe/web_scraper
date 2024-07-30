@@ -24,10 +24,10 @@ public class PipelineStack extends Stack {
 
         final List<String> buildCommands = Arrays.asList(
                 "cd cdk",
-                "ls -la",            // List directory contents to verify location
+                "ls -la",
                 "npm install -g aws-cdk",
                 "npx cdk synth",
-                "ls -la cdk.out"     // Ensure `cdk.out` directory exists
+                "ls -la cdk.out"
         );
 
 
