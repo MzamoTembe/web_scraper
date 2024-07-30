@@ -25,14 +25,15 @@ public class PipelineStack extends Stack {
         final List<String> buildCommands = Arrays.asList(
                 "cd cdk",
                 "npm install -g aws-cdk",
+                "mvn clean package",
                 "npx cdk synth"
         );
 
         final CodeBuildStep synthStep = CodeBuildStep.Builder.create("SynthStep")
                 .input(sourceAction)
                 .installCommands(Collections.singletonList("npm install -g aws-cdk"))
+                .primaryOutputDirectory("cdk/cdk.out")
                 .commands(buildCommands)
-                .primaryOutputDirectory("cdk/cdk.json")
                 .build();
 
         final CodePipeline pipeline = CodePipeline.Builder.create(this, "Pipeline")
