@@ -27,10 +27,6 @@ public class WebScraperStack extends Stack {
         topic.addSubscription(EmailSubscription.Builder.create("mzamotembe7@gmail.com")
                 .build());
 
-        IBucket lambdaBucket = Bucket.Builder.create(this, "LambdaBucket")
-                .removalPolicy(RemovalPolicy.DESTROY)
-                .build();
-
         final Function lambdaFunction = Function.Builder.create(this, "LambdaFunction")
                 .runtime(Runtime.JAVA_21)
                 .handler("index.handler")
